@@ -28,14 +28,14 @@ Cell[][] array2DCells;
 		timer = new Timer(500, this);
 		this.cellsPerRow = cpr;
 		//2. Calculate the cell size.
-		int cellSize=w/cpr;
+		cellSize=w/cpr;
 		//3. Initialize the cell array to the appropriate size.
 		array2DCells=new Cell[cpr][cpr];
 		//3. Iterate through the array and initialize each cell.
 		//   Don't forget to consider the cell's dimensions when 
 		//   passing in the location.
-		for(int i=0; i<cellSize; i++) {
-			for(int j=0; j<cellSize; i++) {
+		for(int i=0; i<cellsPerRow; i++) {
+			for(int j=0; j<cellsPerRow; i++) {
 			array2DCells=new Cell[i][j];
 		}
 		}
@@ -43,10 +43,10 @@ Cell[][] array2DCells;
 	
 	public void randomizeCells() {
 		//4. Iterate through each cell and randomly set each
-		//   cell's isAlive memeber to true of false
+		//   cell's isAlive member to true of false
 		Random rand=new Random();
-		for(int i=0; i<cellSize; i++) {
-			for(int j=0; j<cellSize; i++) {
+		for(int i=0; i<cellsPerRow; i++) {
+			for(int j=0; j<cellsPerRow; i++) {
 				boolean ran=rand.nextBoolean();
 			array2DCells[i][j].isAlive=ran;
 		}
@@ -56,8 +56,8 @@ Cell[][] array2DCells;
 	
 	public void clearCells() {
 		//5. Iterate through the cells and set them all to dead.
-		for(int i=0; i<cellSize; i++) {
-			for(int j=0; j<cellSize; i++) {
+		for(int i=0; i<cellsPerRow; i++) {
+			for(int j=0; j<cellsPerRow; i++) {
 			array2DCells[i][j].isAlive=false;
 		}
 		}
@@ -79,8 +79,8 @@ Cell[][] array2DCells;
 	@Override
 	public void paintComponent(Graphics g) {
 		//6. Iterate through the cells and draw them all
-		for(int i=0; i<cellSize; i++) {
-			for(int j=0; j<cellSize; i++) {
+		for(int i=0; i<cellsPerRow; i++) {
+			for(int j=0; j<cellsPerRow; i++) {
 			array2DCells[i][j].draw(g);
 		}
 		}
@@ -96,8 +96,8 @@ Cell[][] array2DCells;
 		//7. iterate through cells and fill in the livingNeighbors array
 		// . using the getLivingNeighbors method.
 		int[][] livingNeighbors = new int[cellsPerRow][cellsPerRow];
-		for(int i=0; i<cellSize; i++) {
-			for(int j=0; j<cellSize; i++) {
+		for(int i=0; i<cellsPerRow; i++) {
+			for(int j=0; j<cellsPerRow; i++) {
 			livingNeighbors[i][j]=getLivingNeighbors(i, j);
 		
 		
