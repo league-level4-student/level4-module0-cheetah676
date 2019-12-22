@@ -35,8 +35,8 @@ Cell[][] array2DCells;
 		//   Don't forget to consider the cell's dimensions when 
 		//   passing in the location.
 		for(int i=0; i<cellsPerRow; i++) {
-			for(int j=0; j<cellsPerRow; i++) {
-			array2DCells=new Cell[i][j];
+			for(int j=0; j<cellsPerRow; j++) {
+			array2DCells[i][j]=new Cell(j*cellSize, i*cellSize, cellSize);;
 		}
 		}
 	}
@@ -46,7 +46,7 @@ Cell[][] array2DCells;
 		//   cell's isAlive member to true of false
 		Random rand=new Random();
 		for(int i=0; i<cellsPerRow; i++) {
-			for(int j=0; j<cellsPerRow; i++) {
+			for(int j=0; j<cellsPerRow; j++) {
 				boolean ran=rand.nextBoolean();
 			array2DCells[i][j].isAlive=ran;
 		}
@@ -57,7 +57,7 @@ Cell[][] array2DCells;
 	public void clearCells() {
 		//5. Iterate through the cells and set them all to dead.
 		for(int i=0; i<cellsPerRow; i++) {
-			for(int j=0; j<cellsPerRow; i++) {
+			for(int j=0; j<cellsPerRow; j++) {
 			array2DCells[i][j].isAlive=false;
 		}
 		}
@@ -80,7 +80,7 @@ Cell[][] array2DCells;
 	public void paintComponent(Graphics g) {
 		//6. Iterate through the cells and draw them all
 		for(int i=0; i<cellsPerRow; i++) {
-			for(int j=0; j<cellsPerRow; i++) {
+			for(int j=0; j<cellsPerRow; j++) {
 			array2DCells[i][j].draw(g);
 		}
 		}
@@ -97,7 +97,7 @@ Cell[][] array2DCells;
 		// . using the getLivingNeighbors method.
 		int[][] livingNeighbors = new int[cellsPerRow][cellsPerRow];
 		for(int i=0; i<cellsPerRow; i++) {
-			for(int j=0; j<cellsPerRow; i++) {
+			for(int j=0; j<cellsPerRow; j++) {
 			livingNeighbors[i][j]=getLivingNeighbors(i, j);
 		
 		
@@ -114,34 +114,58 @@ Cell[][] array2DCells;
 	//   cell identified by x and y
 	public int getLivingNeighbors(int x, int y){
 		int aliveNeighbors=0;
+					if(x>0) {	
+						if(y>0) {
 		if(array2DCells[x-1][y-1].isAlive==true) {
 			aliveNeighbors+=1;
 		}
+					}
+					}
+					if(x>0) {
 		if(array2DCells[x-1][y].isAlive==true) {
 			aliveNeighbors+=1;
 		}
+					}
+					if(x>0) {
+						if(y<cellsPerRow-1) {
 		if(array2DCells[x-1][y+1].isAlive==true) {
 			aliveNeighbors+=1;
 		}
+					}
+					}
+					if(y>0) {
 		if(array2DCells[x][y-1].isAlive==true) {
 			aliveNeighbors+=1;
 		}
+					}
 		//Cell being checked
 		//if(array2DCells[x][y].isAlive==true) {
 			//aliveNeighbors+=1;
 		//}
+					if(y<cellsPerRow-1) {	
 		if(array2DCells[x][y+1].isAlive==true) {
 			aliveNeighbors+=1;
 		}
+					}
+					if(x<cellsPerRow-1) {
+						if(y>0) {
 		if(array2DCells[x+1][y-1].isAlive==true) {
 			aliveNeighbors+=1;
 		}
+					}
+					}
+					if(x<cellsPerRow-1) {
 		if(array2DCells[x+1][y].isAlive==true) {
 			aliveNeighbors+=1;
 		}
+					}
+					if(x<cellsPerRow-1) {
+						if(y<cellsPerRow-1) {
 		if(array2DCells[x+1][y+1].isAlive==true) {
 			aliveNeighbors+=1;
 		}
+					}
+					}
 		return aliveNeighbors;
 	}
 
@@ -168,7 +192,7 @@ Cell[][] array2DCells;
 		//    which cell is clicked. Then toggle
 		//    the isAlive variable for that cell.
 		for(int i=0; i<cellSize; i++) {
-			for(int j=0; j<cellSize; i++) {
+			for(int j=0; j<cellSize; j++) {
 				if(e.getX()>=i*cellSize && e.getX()<=i+1*cellSize && e.getY()>=j*cellSize && e.getY()<=j+1*cellSize) {
 					array2DCells[i*cellSize][j*cellSize].isAlive=true;
 		}
