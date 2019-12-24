@@ -58,7 +58,7 @@ public class ConwaysGameOfLife extends JPanel implements ActionListener{
 		inputPanel.add(clearButton);
 		add(inputPanel, BorderLayout.NORTH);
 
-		gamePanel = new WorldPanel(WIDTH, HEIGHT, CELLS_PER_ROW);
+		gamePanel = new WorldPanel(WIDTH, HEIGHT, 3);
 		add(gamePanel, BorderLayout.CENTER);
 		
 		window.pack();
