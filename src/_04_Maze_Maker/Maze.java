@@ -17,7 +17,7 @@ cells2d=new Cell[w][h];
 		//   using i and j as the location
 		for(int i=0; i<cells2d.length; i++) {
 			for(int j=0; j<cells2d.length; j++) {
-				cells2d=new Cell[i][j];
+				cells2d[i][j]=new Cell(i, j);
 			}
 		}
 	}

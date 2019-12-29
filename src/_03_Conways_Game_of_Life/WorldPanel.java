@@ -116,25 +116,25 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 		int aliveNeighbors = 0;
 		if (x > 0) {
 			if (y > 0) {
-				if (array2DCells[x - 1][y - 1].isAlive == true) {
+				if (array2DCells[x - 1][y - 1].isAlive) {
 					aliveNeighbors += 1;
 				}
 			}
 		}
 		if (x > 0) {
-			if (array2DCells[x - 1][y].isAlive == true) {
+			if (array2DCells[x - 1][y].isAlive) {
 				aliveNeighbors += 1;
 			}
 		}
 		if (x > 0) {
 			if (y < cellsPerRow - 1) {
-				if (array2DCells[x - 1][y + 1].isAlive == true) {
+				if (array2DCells[x - 1][y + 1].isAlive) {
 					aliveNeighbors += 1;
 				}
 			}
 		}
 		if (y > 0) {
-			if (array2DCells[x][y - 1].isAlive == true) {
+			if (array2DCells[x][y - 1].isAlive) {
 				aliveNeighbors += 1;
 			}
 		}
@@ -143,25 +143,25 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 		// aliveNeighbors+=1;
 		// }
 		if (y < cellsPerRow - 1) {
-			if (array2DCells[x][y + 1].isAlive == true) {
+			if (array2DCells[x][y + 1].isAlive) {
 				aliveNeighbors += 1;
 			}
 		}
 		if (x < cellsPerRow - 1) {
 			if (y > 0) {
-				if (array2DCells[x + 1][y - 1].isAlive == true) {
+				if (array2DCells[x + 1][y - 1].isAlive) {
 					aliveNeighbors += 1;
 				}
 			}
 		}
 		if (x < cellsPerRow - 1) {
-			if (array2DCells[x + 1][y].isAlive == true) {
+			if (array2DCells[x + 1][y].isAlive) {
 				aliveNeighbors += 1;
 			}
 		}
 		if (x < cellsPerRow - 1) {
 			if (y < cellsPerRow - 1) {
-				if (array2DCells[x + 1][y + 1].isAlive == true) {
+				if (array2DCells[x + 1][y + 1].isAlive) {
 					aliveNeighbors += 1;
 				}
 			}
