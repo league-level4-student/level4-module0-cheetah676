@@ -128,7 +128,7 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 			}
 		}
 		if (x > 0) {
-			if (y < cellsPerRow - 1) {
+			if (y < cellsPerRow - 2) {
 				if (array2DCells[x - 1][y + 1].isAlive) {
 					aliveNeighbors += 1;
 				}
@@ -143,24 +143,24 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 		// if(array2DCells[x][y].isAlive==true) {
 		// aliveNeighbors+=1;
 		// }
-		if (y < cellsPerRow - 1) {
+		if (y < cellsPerRow - 2) {
 			if (array2DCells[x][y + 1].isAlive) {
 				aliveNeighbors += 1;
 			}
 		}
-		if (x < cellsPerRow - 1) {
+		if (x < cellsPerRow - 2) {
 			if (y > 0) {
 				if (array2DCells[x + 1][y - 1].isAlive) {
 					aliveNeighbors += 1;
 				}
 			}
 		}
-		if (x < cellsPerRow - 1) {
+		if (x < cellsPerRow - 2) {
 			if (array2DCells[x + 1][y].isAlive) {
 				aliveNeighbors += 1;
 			}
 		}
-		if (x < cellsPerRow - 1) {
+		if (x < cellsPerRow - 2) {
 			if (y < cellsPerRow - 1) {
 				if (array2DCells[x + 1][y + 1].isAlive) {
 					aliveNeighbors += 1;

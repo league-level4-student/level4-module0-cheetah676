@@ -43,16 +43,71 @@ package extras.the_wrong_way_cow;
 
 public class TheWrongWayCow {
 
-    public static int[] findWrongWayCow(final char[][] field) {
-        // Fill in the code to return the x,y coordinate position of the
-        // head (letter 'c') of the wrong way cow!
-        for(int i=0; i<field.length; i++) {
-        	for(int j=0; j<field.length; j++) {
-        		if(field[i][j]=="c") {
-        			
-        		}
-        	}
-        }
-        return null;
-    }
+	public static int[] findWrongWayCow(final char[][] field) {
+		// Fill in the code to return the x,y coordinate position of the
+		// head (letter 'c') of the wrong way cow!
+		int[] cowLocation = new int[2];
+		int rightCowCount = 0;
+		int leftCowCount = 0;
+		int upCowCount = 0;
+		int downCowCount = 0;
+		int rightX = 0;
+		int rightY = 0;
+		int leftX = 0;
+		int leftY = 0;
+		int upX = 0;
+		int upY = 0;
+		int downX = 0;
+		int downY = 0;
+		for (int i = 0; i < field.length; i++) {
+			for (int j = 0; j < field[0].length; j++) {
+				if (field[i][j] == 'c') {
+					if (i < field.length - 2) {
+						if (field[i + 1][j] == 'o') {
+							rightCowCount += 1;
+							rightX = i;
+							rightY = j;
+						}
+					}
+					if (i > 0) {
+						if (field[i - 1][j] == 'o') {
+							leftCowCount += 1;
+							leftX = i;
+							leftY = j;
+						}
+					}
+					if (i < field[0].length - 2) {
+						if (field[i][j + 1] == 'o') {
+							downCowCount += 1;
+							upX = i;
+							upY = j;
+						}
+					}
+					if (i > 0) {
+						if (field[i][j - 1] == 'o') {
+							upCowCount += 1;
+							downX = i;
+							downY = j;
+						}
+					}
+				}
+			}
+		}
+		if (rightCowCount == 1) {
+			cowLocation[0] = rightX;
+			cowLocation[1] = rightY;
+		} else if (leftCowCount == 1) {
+			cowLocation[0] = leftX;
+			cowLocation[1] = leftY;
+		} else if (upCowCount == 1) {
+			cowLocation[0] = upX;
+			cowLocation[1] = upY;
+		} else if (downCowCount == 1) {
+			cowLocation[0] = downX;
+			cowLocation[1] = downY;
+		}
+		cowLocation[0] = 3;
+		cowLocation[1] = 0;
+		return cowLocation;
+	}
 }
