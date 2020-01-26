@@ -62,52 +62,61 @@ public class TheWrongWayCow {
 		for (int i = 0; i < field.length; i++) {
 			for (int j = 0; j < field[0].length; j++) {
 				if (field[i][j] == 'c') {
-					if (i < field.length - 2) {
+					if (i < field.length-1) {
 						if (field[i + 1][j] == 'o') {
 							rightCowCount += 1;
-							rightX = i;
-							rightY = j;
+							rightX = j;
+							rightY = i;
 						}
 					}
 					if (i > 0) {
 						if (field[i - 1][j] == 'o') {
 							leftCowCount += 1;
-							leftX = i;
-							leftY = j;
+							leftX = j;
+							leftY = i;
 						}
 					}
-					if (i < field[0].length - 2) {
+					if (j < field.length-1) {
 						if (field[i][j + 1] == 'o') {
 							downCowCount += 1;
-							upX = i;
-							upY = j;
+							upX = j;
+							upY = i;
 						}
 					}
-					if (i > 0) {
+					if (j > 0) {
 						if (field[i][j - 1] == 'o') {
 							upCowCount += 1;
-							downX = i;
-							downY = j;
+							downX = j;
+							downY = i;
 						}
 					}
 				}
 			}
 		}
-		if (rightCowCount == 1) {
+		if(rightCowCount>1 || leftCowCount>1 || upCowCount>1 || downCowCount>1 && 
+		rightCowCount==1 || leftCowCount==1 || upCowCount==1 || downCowCount==1) {
+			if (rightCowCount == 1) {
 			cowLocation[0] = rightX;
 			cowLocation[1] = rightY;
+			System.out.println(rightX);
+			System.out.println(rightY);
 		} else if (leftCowCount == 1) {
 			cowLocation[0] = leftX;
 			cowLocation[1] = leftY;
+			System.out.println(leftX);
+			System.out.println(leftY);
 		} else if (upCowCount == 1) {
 			cowLocation[0] = upX;
 			cowLocation[1] = upY;
+			System.out.println(upX);
+			System.out.println(upY);
 		} else if (downCowCount == 1) {
 			cowLocation[0] = downX;
 			cowLocation[1] = downY;
+			System.out.println(downX);
+			System.out.println(downY);
 		}
-		cowLocation[0] = 3;
-		cowLocation[1] = 0;
+		}
 		return cowLocation;
 	}
 }
