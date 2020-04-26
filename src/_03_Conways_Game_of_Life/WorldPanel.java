@@ -85,6 +85,7 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 				array2DCells[i][j].draw(g);
 
 				// draws grid
+				//comment out the two lines below to make no grid lines for many, many cells(use commented out dimensions for width, height, and cellsperrow
 				g.setColor(Color.BLACK);
 				g.drawRect(i * cellSize, j * cellSize, cellSize, cellSize);
 			}

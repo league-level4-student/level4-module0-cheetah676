@@ -17,6 +17,12 @@ public class ConwaysGameOfLife extends JPanel implements ActionListener{
 	public static final int WIDTH = 500;
 	public static final int HEIGHT = 500;
 	public static final int CELLS_PER_ROW = 50;
+
+	
+	//public static final int WIDTH=1500;
+	//public static final int HEIGHT=1500;
+	//public static final int CELLS_PER_ROW=1500;
+	//using this setting kills your computer, to use you need to comment out where is creates the grid lines, both of the lines
 	
 	private JFrame window;
 	private JPanel inputPanel;
